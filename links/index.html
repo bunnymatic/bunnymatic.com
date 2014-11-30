@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<? 
+   $topdir = "../";
+   set_include_path(get_include_path() . PATH_SEPARATOR . $topdir);
+   $current_section="links";
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+?>
+<title><? print $_SERVER["HTTP_HOST"] . ":" . get_page_title($_SERVER["PHP_SELF"]); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? print_style(" th {font-size: larger}\na:link {  text-decoration: none}\na:hover {  text-decoration: underline}\n") ?>
+<? include $topdir ."js/topnav.php"; ?>
+</head>
+<? print_bodytag(" onLoad=\"topnav_initialize();\" "); ?>
+<div id="main_container" style="width: <?echo $MAINTABLEWIDTH; ?>px;margin: 20px auto;">
+<table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="6"><img alt="" src="/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td width="72" height="72" rowspan="3"><a href="/"><? print $navimages[0]->img("off"," border=\"0\" "); ?></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#ffffff" colspan="2" height="2"><img alt="" src="/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td  bgcolor="#ffffff"  colspan="2" height="2"><img alt="" src="/i/obey/1x1_white.gif" width="567" height="2"></td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#ffffff"  height="35" width="2"><img alt="" src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10" height="35">&nbsp;</td>
+    <td width="565" height="35"><img alt="" src="/i/obey/1x1_black.gif" width="565" height="1"></td>
+    <td  bgcolor="#ffffff" height="35" width="2"><img alt="" src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#ffffff" height="374" width="2"><img alt="" src="/i/obey/1x1_white.gif" width="2" height="374"></td>
+    <td valign="top" align="center" colspan="3" width="664" height="374">
+     <table width="90%" border="0" cellspacing="15">
+      <tr>
+       <td valign="top" width="25%">
+         <table border="0"  width="100%">
+           <tr>
+             <th colspan=2 align="left">stickies<hr></th>
+           </tr>
+<?
+   $stickerlinks=array();
+
+   $stickerlink = array( "name"=>"inviktus", 
+                    "url" =>"http://inviktus.com" );
+   array_push($stickerlinks, $stickerlink);
+
+
+   $stickerlink = array( "name"=>"wooster collective", 
+                    "url" =>"http://www.woostercollective.com" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"PEELzine", 
+                    "url" =>"http://www.peelzine.com" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"bomit - like vomit but better", 
+                    "url" =>"http://www.bomit.com/" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"i threw up", 
+                    "url" =>"http://www.ithrewup.com/" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"urban wallpaper", 
+                    "url" =>"http://www.urbanwallpaper.freeservers.com/" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"sticker switch", 
+                    "url" =>"http://www.stickerswitch.com/" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"space invaders", 
+                    "url" =>"http://www.space-invaders.com/" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"urbananize.org", 
+                    "url" =>"http://www.urbanize.org/" );
+   array_push($stickerlinks, $stickerlink);
+
+   $stickerlink = array( "name"=>"obey giant", 
+                    "url" =>"http://www.obeygiant.com/" );
+   array_push($stickerlinks, $stickerlink);
+
+
+   foreach ($stickerlinks as $sl)
+   {
+?>
+           <tr>
+                 <td valign=top><font size="-1">&#183</font></td>
+                 <td valign=top><a href="<? print $sl["url"]; ?>"><font size="-1"><? print $sl["name"];?></font></a>
+                 </td>
+          </tr>
+<?  
+   }
+?>
+         </table>
+       </td>
+       <td valign="top" width="25%">
+         <table border="0"  width="100%">
+           <tr>
+             <th colspan=2 align="left">art<hr></th>
+           </tr>
+<?
+
+   $artlinks=array();
+
+   $artlink = array( "name"=>"mission artists united",
+                     "url" =>"http://www.missionartistsunited.org/artists/mrrogers");
+   array_push($artlinks,$artlink);
+
+   $artlink = array( "name"=>"artslant",
+                     "url" =>"http://www.artslant.com/sf/main/");
+   array_push($artlinks,$artlink);
+ 
+   $artlink = array( "name"=>"swipple",
+                    "url" =>"http://www.swipple.com" );
+   array_push($artlinks, $artlink);
+
+   $artlink = array( "name"=>"silly pink bunnies",
+                    "url" =>"http://www.sillypinkbunnies.com" );
+   array_push($artlinks, $artlink);
+
+   $artlink = array( "name"=>"blk/mrkt",
+                    "url" =>"http://www.blkmrkt.com" );
+   array_push($artlinks, $artlink);
+
+   $artlink = array( "name"=>"j.otto", 
+                    "url" =>"http://www.jottodotcom.com" );
+   array_push($artlinks, $artlink);
+
+   $artlink = array( "name"=>"fecal face dot com", 
+                    "url" =>"http://www.fecalface.com/" );
+   array_push($artlinks, $artlink);
+
+   $artlink = array( "name"=>"tiffany bozic", 
+                    "url" =>"http://www.tiffanybozic.net");
+   array_push($artlinks, $artlink);
+
+
+   foreach ($artlinks as $sl)
+   {
+?>
+           <tr>
+                 <td valign=top><font size="-1">&#183</font></td>
+                 <td valign=top><a href="<? print $sl["url"]; ?>"><font size="-1"><? print $sl["name"];?></font></a>
+                 </td>
+          </tr>
+<?  
+   }
+?>
+          </table>
+       </td>
+       <td valign="top" width="25%">
+         <table border="0"  width="100%">
+           <tr>
+             <th colspan=2 align="left">influence<hr></th>
+           </tr>
+<?
+   $influencelinks = array();
+   $influencelink = array("name"=>"DAve", "url"=>"http://www.davewarnke.com");
+   array_push($influencelinks, $influencelink);
+
+   #$influencelink = array("name"=>"miffy", "url"=>"http://www.miffy.com");
+   #array_push($influencelinks, $influencelink);
+
+   $influencelink = array("name"=>"sanrio", "url"=>"http://www.sanrio.com");
+   array_push($influencelinks, $influencelink);
+
+   foreach ($influencelinks as $sl)
+   {
+?>
+           <tr>
+                 <td valign=top><font size="-1">&#183</font></td>
+                 <td valign=top><a href="<? print $sl["url"]; ?>"><font size="-1"><? print $sl["name"];?></font></a>
+                 </td>
+          </tr>
+<?  
+   }
+?>
+          </table>
+       </td>
+       <td valign="top" width="25%">
+         <table border="0" width="100%">
+           <tr>
+             <th colspan=2 align="left">other<hr></th>
+           </tr>
+<?
+   $otherlinks = array();
+
+   $otherlink = array("name"=>"workspace limited", "url"=>"http://www.workspacelimited.org");
+   array_push($otherlinks, $otherlink);
+
+   $otherlink = array("name"=>"nooworks", "url"=>"http://www.nooworks.com");
+   array_push($otherlinks, $otherlink);
+
+   $otherlink = array("name"=>"kontraband", "url"=>"http://www.kontraband.com");
+   array_push($otherlinks, $otherlink);
+
+   #$otherlink = array("name"=>"sweet cherrie", "url"=>"http://www.sweetcherrie.com");
+   #array_push($otherlinks, $otherlink);
+
+   $otherlink = array("name"=>"digital sang", "url"=>"http://www.digitalsang.org");
+   array_push($otherlinks, $otherlink);
+
+   $otherlink = array("name"=>"breathe - the overdose game","url"=>"http://www.obeymiffy.com/breathe/");
+   array_push($otherlinks, $otherlink);
+   
+   foreach ($otherlinks as $sl)
+   {
+?>
+           <tr>
+                 <td valign=top><font size="-1">&#183</font></td>
+                 <td valign=top><a href="<? print $sl["url"]; ?>"><font size="-1"><? print $sl["name"];?></font></a>
+                 </td>
+          </tr>
+<?  
+   }
+?>
+          </table>
+       </td>
+      </tr>
+     </table>
+    </td>
+    <td  bgcolor="#ffffff" ><img alt="" src="/i/obey/1x1_white.gif" width="2" height="374"></td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#ffffff" colspan="5" height="2"><img alt="" src="/i/obey/1x1_white.gif" width="651" height="2"></td>
+  </tr>
+</table>
+<? include "obey/footer.inc.php"; ?>
+</div>
+</body>
+</html>

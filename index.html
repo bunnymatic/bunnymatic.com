@@ -1,0 +1,66 @@
+<? 
+   $topdir = "./";
+   $current_section="circle_starw";
+   set_include_path(get_include_path() . PATH_SEPARATOR . $topdir);
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+
+   $splash_image = "/designs/gifs/bunnymatic_has_a_posse_small.gif";
+   if ( ispill() )
+   {
+       $splash_image = "/designs/gifs/pill_has_a_posse_small.gif";
+   }
+   if ( isbunnymatic() )
+   {
+       $splash_image = "/designs/gifs/bunnymatic_has_a_posse_small.gif";
+   }
+   if ( $splash_image == "" )
+   {
+      header("Location: /cease_and_desist.html");
+      return;
+   }
+?>
+<html>
+<head>
+<title><? print $_SERVER["HTTP_HOST"] .":". get_page_title($_SERVER["PHP_SELF"]); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? include $topdir ."js/topnav.php"; ?>
+<? print_style(); ?>
+</head>
+<? print_bodytag(" onLoad=\"topnav_initialize();\" "); 
+?>
+<div id="main_container" style="width: <?echo $MAINTABLEWIDTH; ?>px;margin: 20px auto;">
+<table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0" height="<? print $MAINTABLEHEIGHT; ?>" name="main" bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="6"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td width="72" height="72" rowspan="3"><a href="/"><? print $navimages[0]->img("off"," border=\"0\" "); ?></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td colspan="2" bgcolor="#ffffff" height="2"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td colspan="2" bgcolor="#ffffff" height="2"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="567" height="2"></td>
+  </tr>
+  <tr> 
+    <td height="35" bgcolor="#ffffff" width="2"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10" height="35">&nbsp;</td>
+    <td width="565" height="35"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_black.gif" width="565" height="1"></td>
+    <td height="35"  bgcolor="#ffffff"  width="2"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+    <td height="374"  bgcolor="#ffffff" width="2"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="374"></td>
+    <td valign="top" align="center" colspan="3" width="644" height="374"><img width="340" height="340" 
+<? print " src=\"$splash_image\" "; ?>
+></td>
+    <td  bgcolor="#ffffff" width="2"><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="374"></td>
+  </tr>
+  <tr> 
+    <td colspan="5" height="2"  bgcolor="#ffffff" ><img src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="651" height="2"></td>
+  </tr>
+</table>
+<? include "obey/footer.inc.php"; ?>
+</div>
+</body>
+</html>

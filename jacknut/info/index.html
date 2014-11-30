@@ -1,0 +1,23 @@
+<? 
+   $THE_PAGE_INFORMATION = <<<EODATA
+      <table cellspacing=0 cellpadding=0>
+             <tr><td>
+                <table><tr><td colspan=2><h2>info<hr></h2></td></tr>
+                 <tr><td>&nbsp;</td><td><a href="/jacknut/shirt_descriptions.html">shirt styles</a></td></tr>
+                 <tr><td>&nbsp;</td><td><a href="/jacknut/payment_info.html">payment information</a></td></tr>
+                 <tr><td>&nbsp;</td><td>email <a href="javascript:mailer('www','bunnymatic.com')">payment/order questions</a></td></tr>
+                </table><br>
+             </td></tr>
+             <tr><td>
+                <table><tr><td colspan=2><h2>contact<hr></h2></td></tr>
+                 <tr><td>&nbsp;</td><td>email the <a href="javascript:mailer('jacknut','bunnymatic.com')">jacknut</a> crew</td></tr>
+                 <tr><td>&nbsp;</td><td>email the <a href="javascript:mailer('www','bunnymatic.com')">webmaster</a></td></tr><br>
+                </table>
+             </tr><td>
+       </table>
+EODATA;
+   $TOPDIR = "../";
+   $sub = "info";
+   include "../simple_template.inc.php";
+?>
+

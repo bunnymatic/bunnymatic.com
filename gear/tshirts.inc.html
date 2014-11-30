@@ -1,0 +1,74 @@
+<?
+   if ( preg_match("/\.inc\.html/", $SCRIPT_FILENAME))
+   {
+      header("Location: /gear/index.html?sub=tshirts");
+      return;
+   }
+?>
+<table 
+      width="90%"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="left" valign="top">
+       <table cellpadding="0" border="0" width="180">
+        <tr><td colspan="2"><font size="-1">mouse over a design</font><hr></td></tr>
+<? 
+   $ctr = 0;
+   foreach ($tshirt_text as $im) {
+       if (!($ctr%1)) {
+           print "<tr>";
+       }
+       # construct design im name
+       if ( $tshirt_bigimages[$ctr] == "" ) {
+	  $design_im = preg_replace("/^img\//","/designs/gifs/",$tshirt_images[$ctr]);
+	  $design_im = preg_replace("/jpg$/","gif",$design_im);
+       }
+       else 
+       {
+          $design_im = $tshirt_bigimages[$ctr];
+       }
+       print "<td><font size=\"-2\">&#183;&nbsp;</font>".
+             "<a href=\"javascript:popUpDesign('".$design_im."');\"".
+             " onmouseover=\"javascript:rollover($ctr);\">".
+             "<font size=\"-2\">$im"."</font></a></td>";
+       $ctr++;
+       if (!($ctr%1)) {
+           print "</tr>\n";
+       }
+   }
+?>
+      <tr><td colspan=2><img src="/i/pix.gif" height=10><br><font size="-2">click on a design to see a closeup</font></td></tr>
+      </table>
+      </td>
+      <td align=center valign=top>
+<!-- image ready -->
+<!-- ImageReady Slices (tshirt.psd) -->
+<table width="333" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="3">
+            <img src="img/tshirts_portion_01.gif" width="333" height="44"></td>
+    </tr>
+    <tr>
+        <td>
+            <img src="img/tshirts_portion_02.gif" width="80" height="291"></td>
+        <td>
+            <img name="timage" src="img/tshirts_portion_03.gif" width="164" height="291"></td>
+        <td>
+            <img src="img/tshirts_portion_04.gif" width="89" height="291"></td>
+    </tr>
+</table>
+<!-- End ImageReady Slices -->
+      </td>
+      </tr></table><br>
+      <table width="90%"><tr><td>
+<font size="-1">tshirts are $15 plus shipping ($5/shirt within the US. 
+for shipments outside the US,  please inquire by
+<a onMouseOver="window.status='email for tshirts'" href="javascript:mailer('tshirts','bunnymatic.com');">email</font></a><font size="-1">).
+designs available are shown above with their rough size/orientation
+on the shirt.  place your order by emailing our
+</font> <a onMouseOver="window.status='email for tshirts'" href="javascript:mailer('tshirts','bunnymatic.com');">
+<font size="-1">t-shirt guy.</font></a>
+<font size="-1">shirts are plain white and available in S,M and L
+(specify Men's or Women's sizing).  Ladies <a href="./index.html?sub=undies">underwear</a> is also available.<br>
+</font><font size="-2"><br>payment can be submitted by <a href="http://www.paypal.com">paypal</a>.  please allow
+at least 3 weeks for delivery</font><br></td></tr>
+     </table>

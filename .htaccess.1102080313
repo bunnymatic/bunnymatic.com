@@ -1,0 +1,3 @@
+AddType application/x-httpd-php5 .html
+
+#php_value include_path "/usr/bin/php:.:/home/obeymiff/public_html/php"

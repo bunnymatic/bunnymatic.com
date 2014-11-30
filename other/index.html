@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<? 
+   $sub = $_GET["sub"];
+   if (($sub != "movies") && ($sub != "schwag") && ($sub != "contact")) {
+      $sub="share";
+   }
+   $current_subsection = $sub;
+   $topdir = "../";
+   set_include_path(get_include_path() . PATH_SEPARATOR . $topdir);
+   $current_section="other";
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+
+   print "<!-- sub is $sub (current is $current_subsection) -->\n";
+?>
+<script type="text/javascript" src="/js/mailer.js"></script>
+<title><? print $_SERVER["HTTP_HOST"] . ":" . get_page_title($_SERVER["PHP_SELF"]); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? print_style(" th {font-size: larger}\na:link {  text-decoration: none}\na:hover {  text-decoration: underline}\n") ?>
+<? include $topdir ."js/other_subnav.php"; ?>
+<? include $topdir ."js/topnav.php"; ?>
+</head>
+<? print_bodytag(" onLoad=\"topnav_initialize(); subnav_initialize();\" "); ?>
+<div id="main_container" style="width: <?echo $MAINTABLEWIDTH; ?>px;margin: 20px auto;">
+<table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0"  bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="6"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td align="left" width="72" height="72" rowspan="3"><a href="/"><? print $navimages[0]->img("off"," border=\"0\" "); ?></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#ffffff" colspan="2" height="2"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td  bgcolor="#ffffff" colspan="2" height="2"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="566" height="2"></td>
+  </tr>
+  <tr> 
+    <td  bgcolor="#ffffff" height="35" width="2"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10"  height="35">&nbsp;</td>
+    <td width="644" height="35"><? include "obey/subnav.inc.php"; ?></td>
+    <td width="2"   height="35" align="right"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+   <td bgcolor="#ffffff"  height="390" width="2" height="400"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="390"></td>
+   <td valign="top" align="center" colspan="3" width="666"><!-- 
+       start inner table 
+     --><? include "$sub".".inc.html"; ?><!-- 
+       end inner table 
+    --></td>
+    <td width="2" height="390" align="right" bgcolor="#ffffff"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="2" height="460"></td>
+  </tr>
+  <tr> 
+    <td colspan="5" height="2" align="top"><img alt="" src="<? print $IMAGE_URL_PREFIX; ?>/i/obey/1x1_white.gif" width="<? print $MAINTABLEWIDTH; ?>" height="2"></td>
+  </tr>
+</table>
+<? include "obey/footer.inc.php"; ?>
+</div>
+</body>
+</html>

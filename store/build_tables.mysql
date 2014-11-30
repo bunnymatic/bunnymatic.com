@@ -1,0 +1,26 @@
+# build tables for pill productions store
+#
+
+create table if not exists gear ( 
+ id integer(10) not null auto_increment,
+ sku varchar(255),
+ size varchar(64),
+ color varchar(64),
+ design_id integer(10),
+ quantity integer(10),
+ price decimal(10,2),
+ shipping1 decimal(10,2),
+ company varchar(255),
+ lastupdate timestamp(14),
+ primary key(id),
+ index sku_idx (sku)
+);
+
+create table if not exists design (
+  id integer(10) not null auto_increment,
+  name varchar(255),
+  displayname varchar(255),
+  imgurl varchar(255),
+  primary key(id)
+);
+

@@ -1,0 +1,185 @@
+<html>
+<head>
+<? 
+   $topdir = "../";
+   $current_section="movies";
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+   require_once "localfun/browser.php";
+
+   browser_check();  
+   $isWin = ($browser_info["OS"] == "Windows");
+?>
+
+<title><? print $HTTP_HOST . ":" . get_page_title($PHP_SELF); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? print_style(" th {font-size: +1}\na:link {  text-decoration: none}\na:hover {  text-decoration: underline}\n") ?>
+<? include $topdir ."js/topnav.php"; ?>
+</head>
+<? print_bodytag(" onLoad=\"topnav_initialize();\" "); ?>
+<img src="/i/obey/1x1_black.gif" width="10">
+<table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0" height="<? print $MAINTABLEHEIGHT; ?>" name="main" bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="7"><img src="/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td width="72" height="72" rowspan="3"><a href="/"><? print $navimages[0]->img("off"," border=\"0\" "); ?></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td colspan="2" height="2" bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td colspan="2" height="2" bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="567" height="2"></td>
+  </tr>
+  <tr> 
+    <td height="35" width="2" bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10" height="35">&nbsp;</td>
+    <td width="565" height="35"><img src="/i/obey/1x1_black.gif" width="565" height="1"></td>
+    <td height="35" width="2" bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+    <td height="344" width="2" bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" height="344"></td>
+    <td valign="top" align="center" colspan="3" width="644" height="344">
+     <table>
+        <tr><td><a href="http://www4.bayarea.net/~skratch/home/jon/mymovie/final_384k.rm"><img alt="homie vs elephant" height=100 width=138 border=0 src="images/homie_v_elephant_icon.jpg"></a></td>
+            <td>
+              <table>
+                <tr>
+                   <td valign=top>
+<? if ($isWin) { ?>
+<font size="-1">
+<? } ?>
+<b>homie vs elephant</b>
+<br>the classic david and
+                    goliath with a modern day spin
+<? if ($isWin) { ?>
+</font>
+<? } ?>
+</td>
+                </tr>
+                <tr>
+                   <td valign=bottom align=right>
+<a href="http://www4.bayarea.net/~skratch/home/jon/mymovie/final_384k.rm">
+<font size="-2">DSL or better</font></a>&nbsp;
+<a href="http://www4.bayarea.net/~skratch/home/jon/mymovie/final_384k.rm"><img
+         align=middle
+         height=32 width=32 alt="fast connection" border=0 src="images/real_small.gif"></a>
+                   </td>
+                </tr>
+                <tr><td valign=bottom align=right>
+<a href="http://www4.bayarea.net/~skratch/home/jon/mymovie/final_ISDN.rm"><font size="-2">modems</font></a>
+&nbsp;
+<a href="http://www4.bayarea.net/~skratch/home/jon/mymovie/final_ISDN.rm"><img
+         align=middle  height=32 width=32    alt="slow connection" border=0 src="images/real_small.gif"></a>
+                     </td>
+                 </tr>
+              </table>
+            </td>
+        </tr>
+        <tr>
+               <td><a target="_blank" href="http://www4.bayarea.net/~skratch/home/jon/mybean/my_bean_finalcut.swf"><img alt="my bean" height=100 width=138 border=0 src="images/my_bean_icon.gif"></a></td>
+                <td valign=top>
+                  <table width="100%">
+                    <tr>
+                      <td valign=top>
+<? if ($isWin) { ?>
+<font size="-1">
+<? } ?>
+<b>my bean, the video</b><br>
+               the first, and long awaited, video from the band, <i>egg</i>
+<? if ($isWin) { ?>
+</font>
+<? } ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align=right><a target="_blank" href="http://www4.bayarea.net/~skratch/home/jon/mybean/my_bean_finalcut.swf"><font size="-2">flash movie</font></a>
+                       &nbsp;
+<a target="_blank" href="http://www4.bayarea.net/~skratch/home/jon/mybean/my_bean_finalcut.swf"><img
+         align=middle  height=32 width=32    alt="my bean, the video" border=0 src="images/flash_small.gif"></a>
+                     </td>
+                    </tr>
+                  </table>
+                </td>
+         </tr>
+        <tr>
+               <td><a target="_blank" href="http://www4.bayarea.net/~skratch/home/jon/cope/cope_finalcut.swf"><img alt="how do you cope?" height=100 width=138 border=0 src="images/cope_icon.gif"></a></td>
+                <td valign=top>
+                  <table width="100%">
+                    <tr>
+                      <td valign=top>
+<? if ($isWin) { ?>
+<font size="-1">
+<? } ?>
+<b>how do you cope?</b><br>
+               ask yourself
+<? if ($isWin) { ?>
+</font>
+<? } ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align=right><a target="_blank" href="http://www4.bayarea.net/~skratch/home/jon/cope/cope_finalcut.swf"><font size="-2">flash movie</font></a>
+                       &nbsp;
+<a target="_blank" href="http://www4.bayarea.net/~skratch/home/jon/cope/cope_finalcut.swf"><img
+         align=middle  height=32 width=32    alt="how do you cope? the video" border=0 src="images/flash_small.gif"></a>
+                     </td>
+                    </tr>
+                  </table>
+                </td>
+         </tr>
+       </table>
+    </td>
+    <td bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" height="344"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" ></td>
+    <td colspan=3 align=right>
+       <table>
+         <tr><td colspan=4 align=right><hr>
+<? if ($isWin) { ?>
+<font size="-1">
+<? } ?>
+<br>Need a video player? Get them from the links below.  
+<? if ($isWin) { ?>
+</font>
+<? } ?>
+              </td>
+         <tr>
+         <tr>
+             <td align=center valign=bottom><a target="_blank" href="http://www.real.com/realone"><img alt="real player" src="images/real_small.gif" height=32 border=0 width=32></a></td>
+             <td align=center valign=bottom><a target="_blank" href="http://www.macromedia.com/downloads/"><img alt="flash player" src="images/flash_small.gif" height=32 border=0 width=32></a></td>
+             <td align=center valign=bottom><a target="_blank" href="http://www.apple.com/quicktime/download/"><img src="images/qt_small.gif" height=32 border=0 width=32></a></td>
+         <tr>
+         <tr>
+             <td align=center valign=top><a href="http://www.real.com/realone">
+<? if ($isWin) { ?>
+<font size="-1">
+<? } ?>
+real player
+<? if ($isWin) { ?>
+</font>
+<? } ?>
+</a></td>
+             <td align=center valign=top><a href="http://www.macromedia.com/downloads/"><? if ($isWin) { ?><font size="-1"><? } ?>flash
+<? if ($isWin) { ?>
+</font>
+<? } ?>
+</a>
+</td>
+             <td align=center valign=top><a href="http://www.apple.com/quicktime/download/"><? if ($isWin) { ?><font size="-1"><? } ?>quicktime
+<? if ($isWin) { ?>
+</font>
+<? } ?></a>
+             </td>
+         <tr>
+       </table>
+    </td>
+    <td bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" ></td>
+  </tr>
+  <tr> 
+    <td colspan="5" height="2" bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="651" height="2"></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# /robots.txt
+#
+# restrict all robots!
+User-agent: *
+Disallow:/js/
+Disallow:/survey/

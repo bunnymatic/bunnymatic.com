@@ -1,0 +1,17 @@
+<html>
+<? require "jacknut/functions.inc.php"; ?>
+<head>
+<? print_style(); ?>
+</head>
+<? print_bodytag(); ?>
+<title> jacknut design close-up
+<? if ($name)
+   print "($name)"
+?>
+</title>
+<center>
+<img height=383 src="<? print $_GET['img']; ?>" border=0>
+<a href="javascript:window.close()"><font size="-1">close window</font></a>
+</center>
+</body>
+</html>

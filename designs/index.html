@@ -1,0 +1,83 @@
+<html>
+<head>
+<? 
+   $sub = $_GET["sub"];
+   if (!$sub) {
+     $sub="one";
+   } 
+
+   $current_subsection=$sub;
+   $IMAGELIST_FNAME="imagelist.".$sub;
+   $topdir ="../";
+   set_include_path(get_include_path() . PATH_SEPARATOR . $topdir);
+   $current_section="designs";
+
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+ 
+   print "<!-- $IMAGELIST_FNAME -->\n";
+?>
+
+<title><? print $_SERVER["HTTP_HOST"] . ":" . get_page_title($_SERVER["PHP_SELF"]); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? print_style(" a:link {  text-decoration: none}\na:hover {  text-decoration: underline}\n") ?>
+<? include $topdir ."js/designs_subnav.php"; ?>
+<? include $topdir ."js/topnav.php"; ?>
+ <? include $topdir ."js/imageviewer.php"; ?>
+</head>
+<? print_bodytag(" onLoad=\"initialize();topnav_initialize();subnav_initialize();\" "); ?>
+<div id="main_container" style="width: <?echo $MAINTABLEWIDTH; ?>px;margin: 20px auto;">
+<table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0" height="<? print $MAINTABLEHEIGHT; ?>" name="main" bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="6"><img alt="" src="/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td width="72" height="72" rowspan="3"><a href="/"><? print $navimages[0]->img("off"," border=\"0\" "); ?></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td colspan="2" height="2"><img alt="" src="/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td colspan="2" height="2"><img alt="" src="/i/obey/1x1_white.gif" width="567" height="2"></td>
+  </tr>
+  <tr> 
+    <td width="2"   height="35"><img alt="" src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10"  height="35">&nbsp;</td>
+    <td width="565" height="35"><? include "obey/subnav.inc.php"; ?></td>
+    <td width="2"   height="35" align=right><img alt="" src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+    <td height="374" width="2"><img alt="" src="/i/obey/1x1_white.gif" width="2" height="374"></td>
+    <td valign="top" align="center" colspan="3" width="644" height="374"><table 
+      width="90%"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="left" valign="top">
+       <table cellpadding="0" border="0" width="150">
+        <tr><td colspan="2">&nbsp;</td></tr>
+<?
+         for ($ii = 0; $ii < sizeof($captions); $ii++) {
+            print "<tr><td><a href=\"javascript:void()\" "
+                 ."onMouseOver=\"mouseover($ii)\">"
+                 ."<font size=\"-2\">$captions[$ii]</font></a></td>"
+                 ."<td align=\"right\"><font size=\"-2\">&nbsp;";
+            if ($aifiles[$ii] && file_exists(getcwd()."/".$aifiles[$ii]))  {
+               print "<a href=\"".$aifiles[$ii]
+                    ."\" onMouseOver=\"mouseover($ii)\">o</a>";
+            }
+            print "</font></td></tr>\n";
+         }
+?>    
+      <tr><td>&nbsp;<br><font size="-2">you want the source?</font></td>
+          <td align="right"><img width="28" height="16" src="/i/obey/bent_up_arrow_white.gif"></td></tr>
+      </table>
+      </td><td align=center><img name="main_window" src="/i/obey/loading_images.gif" width="340" height="340"></td></tr></table><br></td>
+    <td width="2" align=right><img alt="" src="/i/obey/1x1_white.gif" width="2" height="374"></td>
+  </tr>
+  <tr> 
+    <td colspan="5" height="2" align="top"><img alt="" src="/i/obey/1x1_white.gif" width="651" height="2"></td>
+  </tr>
+</table>
+<? include "obey/footer.inc.php"; ?>
+</div>
+</body>
+</html>

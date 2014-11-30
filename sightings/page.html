@@ -1,0 +1,81 @@
+<html>
+<head>
+<? 
+   $topdir = "../";
+   set_include_path(get_include_path() . PATH_SEPARATOR . $topdir);
+   $sub = $_GET["sub"];
+   if (!$sub) { $sub = "one"; }
+   $current_section="sightings";
+   $current_subsection=$sub;
+   $IMAGELIST_FNAME = "imagelist.".$sub;
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+?>
+<script type="text/javascript" src="/js/mailer.js"></script>
+<title><? print $_SERVER["HTTP_HOST"] . ":" . get_page_title($_SERVER["PHP_SELF"]); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? print_style(" a:link {  text-decoration: none}\na:hover {  text-decoration: underline}\n") ?>
+<? include $topdir ."js/sightings_subnav.php"; ?>
+<? include $topdir ."js/topnav.php"; ?>
+<? include $topdir ."js/imageviewer.php"; ?>
+</head>
+<? print_bodytag(" onLoad=\"initialize();topnav_initialize();subnav_initialize();\" "); ?>
+<div id="main_container" style="width: <?echo $MAINTABLEWIDTH; ?>px;margin: 20px auto;">
+<table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0" height="<? print $MAINTABLEHEIGHT; ?>" name="main" bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="7"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td width="72" height="72" rowspan="3"><a href="/"><img 
+        name="<? print $navimages[0]->name()?>" 
+        src="<? print $navimages[0]->fname("off");?>" 
+        width="72" height="72" border="0"></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td colspan="2" height="2"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td colspan="2" height="2"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="567" height="2"></td>
+  </tr>
+  <tr> 
+    <td height="35" width="2"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10" height="35">&nbsp;</td>
+    <td width="565" height="35"><? include "obey/subnav.inc.php"; ?></td>
+    <td align="right" height="35" width="2"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+    <td height="374" width="2"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="2" height="374"></td>
+    <td valign="top" align="center" colspan="3" width="644" height="374"><table 
+       width="90%"  border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="left" valign="top">
+       <table cellspacing="1" border="0" width="190">
+        <tr><td colspan="2">&nbsp;</td></tr>
+<?
+          include $topdir."/sightings/build_caption_loop.inc.php";
+?>    
+     </table>
+    </td>
+    <td align=center><img name="main_window" src="<? print $IMAGE_URL_PREFIX;?>/i/obey/loading_images_310x310.gif" width="310" height="310"></td></tr></table><?
+   print "<br><font size=\"-2\">";
+   print "thanks to all my distributors and their wonderful documentation";
+   print "</font><br>\n";
+?></td>
+    <td width="2" align="right"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="2" height="374"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#ffffff" width="2" height="20"><img alt="" src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="2" height="20"></td>
+    <td colspan="3">&nbsp;&nbsp;<font size="-1">
+                got sightings photos? email them to the
+                <a onMouseOver="window.status='email the webmaster'" href="javascript:mailer('www','bunnymatic.com');">webmaster</a><br>
+                </font>
+    </td>
+    <td height="20" width="2" align="right"><img alt="" src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="2" height="20"></td>
+  </tr>
+  <tr> 
+    <td colspan="5" height="2"><img src="<? print $IMAGE_URL_PREFIX;?>/i/obey/1x1_white.gif" width="651" height="2"></td>
+  </tr>
+</table>
+<? include "obey/footer.inc.php"; ?>
+</body>
+</html>

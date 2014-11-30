@@ -1,0 +1,35 @@
+# product no.  title   design image
+#
+# tshirts start at 101
+#   use f for ladies shirt
+#   use m for mens shirt
+#   S,M,L should be size
+# omp104_m_M  is a mens medium electricat shirt
+#
+# undies start at 201
+#   followed by size (xs = 4,s = 5,m,l)
+omp101| obey blanco|img/blanco_obey.jpg
+omp102| unleash blanco|img/blanco_unleash.jpg
+omp103| crisco|img/crisco.jpg
+omp104| electricat|img/electricat_square.jpg
+omp105| gogo girls|img/gogo4.jpg
+omp106| chick|img/graffiti_babe_3panel.jpg
+omp107| lookee|img/lookee.jpg
+omp108| miffy has a posse|img/miffy_posse_single.jpg
+omp109| tanks|img/miffy_with_tanks.jpg
+omp110| obey badtz|img/obey_badtz_factory.jpg
+omp111| obey gates|img/obey_gates_factory.jpg
+omp112| obey its easy|img/obey_its_easy.jpg
+omp113| obey krusty|img/obey_krusty_factory.jpg
+omp114| obey miffy|img/obey_miffy.jpg
+omp115| obey factory|img/obey_miffy_factory3.jpg
+omp116| obey star|img/obey_miffy_star_dashes.jpg
+omp117| poop|img/poop_every_day_script.jpg
+omp118| no breeding|img/thankyou.jpg
+omp119| unleash|img/unleash1.jpg
+omp120| unleash 2|img/unleash2.jpg
+omp201| obey miffy|img/undies_obeymiffy1.jpg|/designs/gifs/obeymiffy_undies.gif
+omp202| obey porn|img/undies_obeyporn.jpg|/designs/gifs/miffyobeyporn.gif
+omp203| obey miffy porn|img/undies_obeyporn2.jpg|/designs/gifs/obeyporn2.gif
+omp204| pill|img/undies_pill.jpg|/designs/gifs/pill.gif
+omp205| lassic porn|img/undies_porn.jpg|/designs/gifs/miffyporn.gif

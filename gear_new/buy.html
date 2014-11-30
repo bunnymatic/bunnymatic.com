@@ -1,0 +1,147 @@
+<?
+   # must have shirt/undie id number
+
+   # if not, redirect to referring page
+   if ( ! is_int($partno) )
+   {
+       print "Location: http://".$HTTP_HOST .$HTTP_REFERER;
+   }
+   if (($partno)<100)
+   {
+       print "Location: http://".$HTTP_HOST .$HTTP_REFERER;
+   }
+   if ($sub)
+   {
+       print "Location: http://".$HTTP_HOST .$HTTP_REFERER;
+   }
+   
+   switch($sub) 
+   {
+      case "undies":
+        $infofname[0] = "imagelist.tshirts1";
+        break;
+      case "tshirts":
+      case "tshirts1":
+      case "tshirts2":
+        $infofname[0] = "imagelist.tshirts1";
+        $infofname[1] = "imagelist.tshirts2";
+        break;
+      default:
+        print "Location: http://".$HTTP_HOST .$HTTP_REFERER;
+        break;
+   } 
+    
+?>
+<HTML><head>
+<? 
+   $topdir ="../";
+   $current_section="buygear";
+
+   require "obey/functions.inc.php" ;
+   require "obey/params.php"; 
+   require "obey/paypal.php";
+
+   # load tshirt designs
+   $tshirt_info = array();
+
+   $tshirtfile = file( $IMAGELIST_FNAME );
+   foreach ($tshirtfile as $line) {
+       if (!preg_match("/^\#/", $line))
+       {
+          $line = trim($line);
+          list($partno, $text,$fname,$bigimagefname,$unitprice,$shipping_first,$shipping_additional) = explode("\|",$line);
+ 
+          $info = array();
+          $info["PARTNUMBER"] = $partno;
+          $info["DISPLAYNAME"] = $text;
+          $info["THUMBNAIL"] = $fname;
+          $info["BIGIMAGE"] = $bigimagefname;
+          $info["UNITPRICE"] = $unitprice;
+          $info["SHIPPING_FIRST"] = $shipping_first;
+          $info["SHIPPING_ADDITIONAL"] = $shipping_additional;
+
+          array_push($tshirt_info,$info);
+#          array_push($tshirt_bigimages, $bigimagefname);
+ #         array_push($tshirt_images,$fname);
+  #        array_push($tshirt_text,$text);
+   #       array_push($tshirt_partnumbers, $partno);
+       }
+   }
+
+?>
+<script type="text/javascript" src="/js/mailer.js"></script>
+<title>bunnymatic.com:<? print get_page_title($PHP_SELF); ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<? print_style(" a:link {  text-decoration: none}\na:hover {  text-decoration: underline}\n") ?>
+<? #include $topdir ."js/gear_subnav.php"; ?>
+<? include $topdir ."js/topnav.php"; ?>
+<script type="text/javascript">
+<!-- Begin
+function popUpDesign(imgname) {
+URL = "design.html?img=" + imgname;
+day = new Date();
+id = day.getTime();
+design = window.open(URL, 1 , 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=360,height=380');
+design.focus();
+}
+// End -->
+<? 
+$imagearray = array();
+foreach ( $tshirt_info as $inf )
+{
+   $imname = $inf["THUMBNAIL"];
+   array_push($imagearray, $imname);
+}
+print_js_array("tshirtfnames", $imagearray, 1); ?>
+// image preloader
+var timages = Array();
+function preloadTImages() {
+    for (ii = 0; ii < tshirtfnames.length; ii ++ ) {
+	timages[ii] = new Image();
+        timages[ii].src = tshirtfnames[ii];
+    }
+}
+function rollover(id) {
+   document.timage.src = timages[id].src;
+}
+   
+// -->
+</script>
+</head>
+<? print_bodytag(" onLoad=\"topnav_initialize();subnav_initialize();preloadTImages();\" "); ?>
+<img src="/i/obey/1x1_black.gif" width="10" 
+border=0
+><table width="<? print $MAINTABLEWIDTH; ?>" border="0" cellspacing="0" cellpadding="0" height="<? print $MAINTABLEHEIGHT; ?>" name="main" bgcolor="#000000">
+  <tr>
+    <td width="20" height="<? print $MAINTABLEHEIGHT; ?>" rowspan="6"><img src="/i/obey/1x1_black.gif" width="20"></td>
+  </tr>
+  <tr>
+    <td height="35" colspan="2">&nbsp;</td>
+    <td width="72" height="72" rowspan="3"><a href="/"><? print $navimages[0]->img("off"," border=\"0\" "); ?></a></td>
+    <td colspan="2" height="35"><? include "obey/topnav.inc.php"; ?></td>
+  </tr>
+  <tr> 
+    <td colspan="2" height="2"><img src="/i/obey/1x1_white.gif" width="12" height="2"></td>
+    <td colspan="2" height="2"><img src="/i/obey/1x1_white.gif" width="567" height="2"></td>
+  </tr>
+  <tr> 
+    <td width="2"   height="35"  bgcolor="#ffffff"><img src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+    <td width="10"  height="35">&nbsp;</td>
+    <td width="565" height="35">
+    <? include "obey/subnav.inc.php"; ?></td>
+    <td width="2"   height="35" bgcolor="#ffffff" align=right><img src="/i/obey/1x1_white.gif" width="2" height="35"></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#ffffff" height="400" width="2"><img src="/i/obey/1x1_white.gif" width="2" height="400"></td>
+    <td valign="top" align="center" colspan="3" width="644" height="400"><? include $current_subsection.".inc.html"; ?></td>
+    <td width="2"  bgcolor="#ffffff" align=right><img src="/i/obey/1x1_white.gif" width="2" height="400"></td>
+  </tr>
+  <tr> 
+    <td colspan="5" height="2"  bgcolor="#ffffff" ><img src="/i/obey/1x1_white.gif" width="651" height="2"></td>
+  </tr>
+</table>
+</body>
+</html>
+
+
+

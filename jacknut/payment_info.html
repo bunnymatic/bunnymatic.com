@@ -1,0 +1,38 @@
+<? 
+   $THE_PAGE_INFORMATION= <<<EODATA
+                <table><tr><td><h2>payment information<hr></h2></td>
+                 <td align=right><a href="http://www.paypal.com/"><img src="/images/jacknut/paypal_logo.gif" border=0></a></td></tr>
+                 <tr><td colspan=2>For payments, we prefer 
+<a href="http://www.paypal.com/">paypal</a>.  Our site uses paypal 
+to manage the secure payment and shopping cart features.  If you
+ have questions about how paypal works, check out 
+<a href="http://www.paypal.com">www.paypal.com</a>.  
+We also accept payment by personal check (see below for details). 
+If you have other questions about ordering, please email us 
+<a href="javascript:mailer('jacknut','bunnymatic.com')">(jacknut
+ at bunnymatic.com)</a>, 
+and we will do our best to answer your them.<br></td></tr>
+                 <tr><td colspan=2><br><h4>personal checks</h4>
+If you would like to order some gear and pay with a personal check, 
+you can simply write up the order with the items you would like. 
+ Make sure to include style (mens/womens), color, design and any
+ other pertinent information.  Total the prices and send a check
+ for the total.  Stickers and magnets have shipping costs included
+ in the price.  For shirts, and $5 shipping and handling per shirt.
+  Send the order, the mailing address where we should send the items,
+ a valid email address (in case there is a problem with the order),
+ and a check made out to 'jon rogers' to the following address:
+<br><br><address>jacknut<br>
+3478 18th Street #6<br>
+San Francisco, CA 94110<br>
+</address><br>
+Allow 4-6 weeks for shirt orders.  1 week for stickers, and magnets.
+If you have additional questions, feel free to email us at 
+<a href="javascript:mailer('jacknut','bunnymatic.com')">jacknut at bunnymatic.com</a>.</td></tr>
+                </table>
+
+EODATA;
+   $TOPDIR = "./";
+   $sub="payment info";
+   include "./simple_template.inc.php";
+?>

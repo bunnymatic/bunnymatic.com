@@ -1,0 +1,101 @@
+<?
+   if ( preg_match("/\.inc\.html/", $SCRIPT_FILENAME))
+   {
+      header("Location: /gear/index.html?sub=hoodies");
+      return;
+   }
+?>
+<table 
+      width="90%"  border="0" cellpadding=10>
+      <tr>
+<td align=left rowspan=2 valign=bottom><img width=180 src="http://www4.bayarea.net/~skratch/obey/designs/gifs/obeymotorhead.gif"></td>
+<td align=right valign=bottom><? add_viewcart_button(); ?></td></tr>
+      <tr>
+<? #        <td></td>?>
+        <td valign=top><img width="52" src="/i/obey/new_text.gif" alt="new!">&nbsp;
+<b>Hoodies are finally here!</b><br>The item you've all been
+         waiting for is finally hear.  Get your new ObeyMiffy hoodie and
+         be the talk of the town and the envy of all your friends.  
+         We have the <a href="javascript:popUpDesign('/i/obey/unisex_hoodie_product.jpg');">unisex sweatshirt hoodie</a> and the sexy <a href="javascript:popUpDesign('/i/obey/ladies_hoodie_product.jpg');">ladies long sleeve jersey hoodie</a>.  Click on the hoodies below for a closer look.
+        </td>
+      </tr>
+      <tr>
+      <td colspan=2 align=center valign=top>
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+<? 
+       $unisexhoodie = array();
+       $sizes = array("Medium","Large","X-Large");
+       $unisexhoodie["DISPLAYNAME"] = "ObeyMiffy Unisex Hoodie Sweatshirt";
+       $unisexhoodie["AVAILABLE_SIZES"] = $sizes;
+       $unisexhoodie["PARTNUMBER"] = 1001;
+       $unisexhoodie["UNITPRICE"] = "40";
+       $unisexhoodie["SHIPPING_FIRST"] = "8";
+       $unisexhoodie["SHIPPING_ADDITIONAL"] = "3";
+       $unisexhoodie["AVAILABLE_SIZES"] = $sizes;
+       $unisexhoodie["image_detail"] = "/i/obey/unisex_hoodie_product.jpg";
+       $unisexhoodie["image"] = "/i/obey/unisex_hoodie_product_small.jpg";
+
+       $womenshoodie = array();
+       $sizes = array("Small","Medium","Large");
+       $womenshoodie["DISPLAYNAME"] = "ObeyMiffy Women's Jersey Long Sleeved Hoodie Shirt";
+       $womenshoodie["AVAILABLE_SIZES"] = $sizes;
+       $womenshoodie["PARTNUMBER"] = 2001;
+       $womenshoodie["UNITPRICE"] = "35";
+       $womenshoodie["SHIPPING_FIRST"] = "5";
+       $womenshoodie["SHIPPING_ADDITIONAL"] = "3";
+       $womenshoodie["AVAILABLE_SIZES"] = $sizes;
+       $womenshoodie["image_detail"] = "/i/obey/ladies_hoodie_product.jpg";
+       $womenshoodie["image"] = "/i/obey/ladies_hoodie_product_small.jpg";
+
+       $hoodies = array($unisexhoodie, $womenshoodie);
+
+       ?>
+<table><tr>
+<?
+       foreach ($hoodies as $part)
+       {
+?>        
+        <td colspan=2 align=center valign=top>
+           <b><? print $part["DISPLAYNAME"]; ?></b><br>
+        </td>
+<?     }
+?>
+       </tr>
+       <tr>
+<?
+       foreach ($hoodies as $part)
+       {
+?>        
+       <td align=center valign=top>
+           <a href="javascript:popUpDesign('<? print $part["image_detail"]; ?>');"><img 
+             border=0 src="<? print $part["image"];?>" alt="<? print $part["DISPLAYNAME"]; ?>"><br><font size="-2">click for a closeup</font></a>
+        </td>
+        <td align=center valign=top>
+           <? add_purchase_button($part); ?><br>
+           <font size="-1">Price: $<? print $part["UNITPRICE"]; ?> USD</font>
+	</td>
+<?     }
+?>
+    </tr>
+</table>
+      </td>
+      </tr></table><br>
+      <table width="95%"><tr><td>
+<font size="-1">All our hoodies are black with a hand screen printed design. 
+ Unisex hoodies are Hanes PrintPro sweatshirts and available in Men's 
+sizes M, L and XL.  Ladies hoodies are from 
+<a href="http://www.americanapparel.net">American Apparel</a> 
+and are jersey tshirt material.  They are available in Women's 
+sizes S, M and L.  We use <a href="http://www.paypal.com">paypal</a> 
+to manage secure online shopping.  If you would like a hoodie, 
+but would prefer to pay by check, place your order by emailing our
+</font> <a onMouseOver="window.status='email for tshirts'" href="javascript:mailer('tshirts','bunnymatic.com');">
+<font size="-1">t-shirt guy.</font></a>
+<font size="-1">please allow 2-3 weeks for delivery.</font><br>
+<font size="-1">For shipments outside the US,  please inquire by
+<a onMouseOver="window.status='email for hoodies'" href="javascript:mailer('tshirts','bunnymatic.com');">email</font></a><font size="-1">.
+</td></tr>
+       <tr><td align=right valign=bottom>
+<a href="http://www.paypal.com"><img src="/i/obey/paypal_logo.gif" border=0></a></td></tr>
+     </table>

@@ -1,0 +1,141 @@
+<script type="text/javascript" src="/js/jacknut_popup.js"></script>
+<? 
+   $shirtimages = array();
+   
+   function _make_image_tag($taginfo)
+   {
+       $tagimg = "<img "
+             ." src=\"".$taginfo["img"]."\" border=0 "
+             ." alt=\"".$taginfo["name"]."\">";
+       $tagtxt = "<font size=\"-2\">".$taginfo["name"]."</font>\n";
+       if ($taginfo["img2"])
+       { 
+           $tag = "<center><a href=\"javascript:popUpDesign('".$taginfo["img2"]."');\">"
+               . $tagimg ."</a><br>" . $tagtxt ."</center>";
+       }
+       else
+       {
+           $tag = "<center>". $tagimg ."<br>" .$tagtxt ."</center>";
+       }
+       return ($tag);
+   }
+
+   $ctr = 0;
+   $shirtinfo = array();  
+   $shirtinfo = array();  
+   $shirtinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/products/obey_brown_capsleeve_small.jpg";
+   $shirtinfo["img2"] = "http://www4.bayarea.net/~skratch/images/jacknut/products/obey_brown_capsleeve.jpg";
+   $shirtinfo["name"] = "Women's Raglan Cap Sleeve T";
+   $shirtimages[$ctr] = _make_image_tag($shirtinfo);
+   $ctr++;
+
+   $shirtinfo = array();  
+   $shirtinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/amapparel_2410.jpg";
+   $shirtinfo["name"] = "Men's Ringer T";
+   $shirtimages[$ctr] = _make_image_tag($shirtinfo);
+   $ctr++;
+
+   $shirtinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/products/obey_lime_small.jpg";
+   $shirtinfo["img2"] = "http://www4.bayarea.net/~skratch/images/jacknut/products/obey_lime.jpg";
+   $shirtinfo["name"] = "Women's Baby Rib Girly T";
+   $shirtimages[$ctr] = _make_image_tag($shirtinfo);
+   $ctr++;
+
+   $shirtinfo = array();  
+   $shirtinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/amapparel_2001.jpg";
+   $shirtinfo["name"] = "Men's Fine Jersey T";
+   $shirtimages[$ctr] = _make_image_tag($shirtinfo);
+   $ctr++;
+
+   $shirtinfo = array();  
+   $shirtinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/products/seal_olive_small.jpg";
+   $shirtinfo["img2"] = "http://www4.bayarea.net/~skratch/images/jacknut/products/seal_olive.jpg";
+   $shirtinfo["name"] = "Women's Fine Jersey T";
+   $shirtimages[$ctr] = _make_image_tag($shirtinfo);
+   $ctr++;
+
+   $colors_images = array();
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_asphalt.jpg";
+   $colorinfo["name"] = "asphalt";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_brown.jpg";
+   $colorinfo["name"] = "brown";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_kelly.jpg";
+   $colorinfo["name"] = "kelly green";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_lime.jpg";
+   $colorinfo["name"] = "lime";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_olive.jpg";
+   $colorinfo["name"] = "olive";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_orange.jpg";
+   $colorinfo["name"] = "orange";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_royalblue.jpg";
+   $colorinfo["name"] = "royal blue";
+   array_push($colors_images, $colorinfo);
+
+   $colorinfo = array();
+   $colorinfo["img"] = "http://www4.bayarea.net/~skratch/images/jacknut/color_teal.jpg";
+   $colorinfo["name"] = "teal";
+   array_push($colors_images, $colorinfo);
+
+   $all_color_images_html = "\n<table>";
+   $ctr = 0;
+   $numcols = 4;
+   print "\n<!-- " . sizeof($colors_images) ." size of -->\n";
+   foreach ($colors_images as $img) {
+      if ($ctr == 0)
+      {
+         $all_color_images_html .= "<tr>\n";
+      }
+      elseif (!($ctr % $numcols))
+      {
+         $all_color_images_html .= "</tr>";
+         if ( $ctr < sizeof($colors_images) )
+         { 
+            $all_color_images_html .= "<tr>\n";
+         }              
+      }
+      $all_color_images_html = $all_color_images_html ."<td align=center>" . _make_image_tag($img) ."</td>\n";
+      $ctr++;
+   }
+   if ( $ctr % $numcols )
+   {
+      while ( $ctr % $numcols )
+      {
+	   $all_color_images_html .= "<td>&nbsp;</td>\n";
+           $ctr ++;
+      }
+   }
+   $all_color_images_html = $all_color_images_html ."</tr></table>\n";
+
+   $THE_PAGE_INFORMATION= <<<EODATA
+                <table><tr><td colspan=4><h2>shirt descriptions<hr></h2></td></tr>
+                 <tr><td colspan=3 valign=top><font size="-1">We use high 
+quality 100% cotton tshirts.  Women's shirts are Bella brand.  Men's shirts
+are Hanes Beefy T's.  Each shirt is hand screen printed for a long lasting 
+design.  When placing an order, notice that the shirt style and color are chosen together.  Not all colors are available in all styles.</font><br>&nbsp;<br>
+ </table>
+
+EODATA;
+   $TOPDIR = "./";
+   $sub="shirt desciptions";
+   include "./simple_template.inc.php";
+?>

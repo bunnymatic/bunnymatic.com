@@ -1,0 +1,93 @@
+<? 
+   $iminfo = array();
+   $iminfoctr = 0;
+   $iminfo[$iminfoctr] = array("cabinet1.jpg","number 1 fan(1)");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("cabinet2.jpg","number 1 fan(2)");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("cabinet3.jpg","number 1 fan(3)");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("best_shoes_ever.jpg","custom crocs");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("fanart_drawings1.jpg","lovely fanart");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("smashed_bunnymatic.jpg","more lovely fanart");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("fanart_basura.jpg","tit for tat");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("fanart_nice_letter1.jpg","a nice letter");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("milles_bornes.jpg","milles bornes art");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("customcd.jpg","a.d.d. mix cd");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("postcard_from_manchester.jpg","postcard from manchester, england");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("stamp_from_uk.jpg","homemade miffy stamp from surrey, england");
+   $iminfoctr++;
+   $iminfo[$iminfoctr] = array("stickers_from_texas.jpg","great goodies from texas");
+   $iminfoctr++;
+
+   # construct array for js
+   $jsimgs = array();
+   $prefixurl = "http://www4.bayarea.net/~skratch/images/obey/share/";
+   foreach ($iminfo as $imitem) {
+      array_push($jsimgs,$prefixurl . $imitem[0]);
+   }
+     
+   print "\n<script type=\"text/javascript\">\n<!--\n";
+   print_js_array("imgs",$jsimgs, 1);
+   print "\n//-->\n</script>\n";
+   
+?>
+<script type="text/javascript">
+<!--
+function loadDisplayImage(inum) {
+   document.mainwindow.src = imgs[inum];
+}
+//-->
+</script>   
+     <table width="90%" border="0" cellspacing="15">
+      <tr><td valign="top" width="30%">
+         <table border="0"  width="100%">
+           <tr>
+             <th align="left">&nbsp;<hr></th>
+           </tr>
+           <tr>
+             <td><font size="-2">
+                many people who have requested (and received) stickers
+                have sent some really great little gifts and things.
+                i wanted to share some of them here.<br>
+                </font><br>
+ <font size="-2">[mouse over the links]</font>
+<?
+  print "<center><table  width=\"90%\">\n";
+  $myctr = 0;
+  foreach ($iminfo as $imitem) {
+     print "<tr><td valign=\"top\"><font size=\"-2\">&nbsp;-&nbsp;".
+           "</font></td>".
+           "<td valign=\"top\"><a href=\"javascript:void();\"".
+           " onMouseOver=\"javascript:loadDisplayImage($myctr);\">".
+           "<font size=\"-2\">". $imitem[1] . "</font></td></tr>\n";
+     $myctr++;
+  }
+  print "</table></center>\n";
+?>
+             </td>
+            </tr>
+            <tr>
+             <td>
+	      <br>
+	      <font size="-2">do you want to play, too?  check out our
+              <a href="./index.html?sub=schwag"><font size="-2">schwag</font></a>
+               section.</font><br>
+            </td>
+           </tr>
+          </table>
+       </td>
+       <td width="60%">
+        <img name="mainwindow" src="<? print $prefixurl.$iminfo[0][0]; ?>" width="320" height="320"><br>
+<font size="-2">to those people who sent things in:<br>thanks, very much. i love all of it.</font>
+        </td>
+       </tr>
+     </table>

@@ -1,0 +1,19 @@
+<html>
+<? require "obey/functions.inc.php"; ?>
+<head>
+<? print_style(); ?>
+<title>designs close-up
+<? if ($name)
+   print "($name)"
+?>
+</title>
+</head>
+<? print_bodytag(); ?>
+<center>
+<table border=0>
+<tr><td align=center><img src="<? print $img; ?>" border=0></td></tr>
+<tr><td align=center valign=top><a href="javascript:window.close()"><font size="-1">close window</font></a></td></tr>
+</table>
+</center>
+</body>
+</html>

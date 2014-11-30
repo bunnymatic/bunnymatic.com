@@ -1,0 +1,90 @@
+<HTML>
+<? 
+    require "jacknut/functions.inc.php" ;
+    require "jacknut/params.php"; 
+
+?>
+<HEAD>
+<TITLE><? print get_title_prefix() . ": welcome"; ?></TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<? print_style(); ?>
+<script type="text/javascript">
+  
+   var btn = new Array();
+   btn[0] = new Array( '/images/jacknut/tonia_shirts_button.jpg', '/images/jacknut/tonia_shirts_button_over.jpg');
+   btn[1] = new Array( '/images/jacknut/tonia_stickers_button.jpg', '/images/jacknut/tonia_stickers_button_over.jpg');
+   btn[2] = new Array( '/images/jacknut/tonia_magnets_button.jpg', '/images/jacknut/tonia_magnets_button_over.jpg');
+
+   var button_names = new Array( "shirts_btn", "stickers_btn", "magnets_btn");
+   
+   function initialize_buttons() {
+      for ( var ii = 0; ii < button_names.length; ii ++ ) {
+         for ( var jj = 0; jj < 2 ; jj++ ) {
+            eval( button_names[ii] +'_'+jj+'= new Image();');
+            eval( button_names[ii] +'_'+jj+'.src = btn[ii][jj];');
+         }
+      }
+      return true;
+   } 
+   
+   function mouseover( btn_idx, new_val )
+   {
+      eval ('document.'+button_names[btn_idx]+
+            '.src='+button_names[btn_idx]+'_'+new_val+'.src;');
+      return true;
+   }
+</script>
+</HEAD>
+<? print_bodytag(" onLoad=\"javascript:initialize_buttons();\" ");?>
+<!-- ImageReady Slices (weblayout.psd) -->
+<TABLE WIDTH=800 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD colspan=3 align=center><IMG border=0 
+                           SRC="/images/jacknut/weblayout_01.gif" 
+                           WIDTH=518 HEIGHT=94 
+                     ALT="governor arnold schwarzenegger shirts, stickers and magnets"></td>
+	</TR>
+	<TR>
+		<TD WIDTH=800 HEIGHT=82 COLSPAN=3>
+			<IMG NAME="mainlayout_tonia_01" SRC="/images/jacknut/mainlayout_tonia_01.jpg" WIDTH=800 HEIGHT=82 ALT="governor arnold schwarzenegger shirts, stickers and magnets"></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=216 HEIGHT=260 ROWSPAN=3>
+			<IMG NAME="mainlayout_tonia_02" SRC="/images/jacknut/mainlayout_tonia_02.jpg" WIDTH=216 HEIGHT=260 ALT="governor arnold schwarzenegger shirts, stickers and magnets"></TD>
+		<TD WIDTH=222 HEIGHT=91>
+			<A 
+                     href="shirts/" 
+			  alt="shirts"
+                     onMouseOver="javascript:mouseover(0,1);"
+                     onMouseOut="javascript:mouseover(0,0);">
+				<IMG NAME="shirts_btn" SRC="/images/jacknut/tonia_shirts_button.jpg" WIDTH=222 HEIGHT=91 BORDER=0 ALT="arnold schwarzenegger shirts"></A></TD>
+		<TD WIDTH=362 HEIGHT=260 ROWSPAN=3>
+			<IMG NAME="mainlayout_tonia_04" SRC="/images/jacknut/mainlayout_tonia_04.jpg" WIDTH=362 HEIGHT=260 ALT="governor arnold schwarzenegger shirts, stickers and magnets"></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=222 HEIGHT=104>
+			<A 
+                     href="stickers/" 
+			  alt="stickers"
+                     onMouseOver="javascript:mouseover(1,1);"
+                     onMouseOut="javascript:mouseover(1,0);">
+				<IMG NAME="stickers_btn" SRC="/images/jacknut/tonia_stickers_button.jpg" WIDTH=222 HEIGHT=104 BORDER=0 ALT="arnold schwarzenegger stickers"></A></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=222 HEIGHT=65>
+			<A 
+                     href="magnets/" 
+			  alt="magnets"
+                     onMouseOver="javascript:mouseover(2,1);"
+                     onMouseOut="javascript:mouseover(2,0);">
+				<IMG NAME="magnets_btn" SRC="/images/jacknut/tonia_magnets_button.jpg" WIDTH=222 HEIGHT=65 BORDER=0 ALT="arnold schwarzenegger magnets"></A></TD>
+	</TR>
+	<TR>
+		<TD WIDTH=800 HEIGHT=86 COLSPAN=3>
+			<IMG NAME="mainlayout_tonia_07" SRC="/images/jacknut/mainlayout_tonia_07.jpg" WIDTH=800 HEIGHT=86 ALT="governor arnold schwarzenegger shirts, stickers and magnets"></TD>
+	</TR>
+<tr><td align=center colspan=3><? print_text_nav("./"); ?></td></tr>
+</TABLE>
+<!-- End ImageReady Slices -->
+</BODY>
+</HTML>
